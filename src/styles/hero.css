@@ -1,0 +1,185 @@
+/* ===== Hero: "Наши лекторы" ===== */
+
+.hero-section {
+    box-sizing: border-box;
+    position: relative;
+    width: 1159px;
+    min-height: 380px; /* Чуть увеличили высоту */
+    margin: 24px auto 0;
+    padding: 32px 40px 60px 40px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    overflow: hidden;
+}
+
+    /* Картинка */
+    .hero-section .hero-image {
+        flex: 0 0 480px;
+        height: 280px;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #e2e8f0;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Тень для объема */
+    }
+
+        .hero-section .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+    /* Текстовый блок */
+    .hero-section .hero-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+/* Бейдж */
+.hero-badge {
+    display: inline-block;
+    align-self: flex-start;
+    background: #eff6ff;
+    color: #2563eb;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+/* Заголовок */
+.hero-section .hero-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.3;
+    color: #1a1a2e;
+    margin: 0 0 12px;
+    text-align: left; /* Выровняли по левому краю для лучшей читаемости */
+}
+
+/* Подзаголовок (продающий текст) */
+.hero-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #555;
+    margin: 0 0 24px;
+    max-width: 90%;
+}
+
+/* Блок с кнопкой */
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Яркая кнопка */
+.hero-cta-button {
+    background: #2563eb;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+    .hero-cta-button:hover {
+        background: #1d4ed8;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    }
+
+/* Гарантия */
+.hero-guarantee {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #10b981; /* Зеленый цвет для доверия */
+    font-weight: 500;
+}
+
+/* ===== Бегущая строка ===== */
+.hero-marquee-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    padding: 12px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.hero-marquee {
+    display: flex;
+    width: fit-content;
+    animation: scrollText 20s linear infinite;
+}
+
+    .hero-marquee span {
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding-right: 50px;
+    }
+
+    .hero-marquee:hover {
+        animation-play-state: paused;
+    }
+
+@keyframes scrollText {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Адаптив */
+@media (max-width: 1200px) {
+    .hero-section {
+        width: 100%;
+        flex-direction: column;
+        padding: 30px;
+        padding-bottom: 80px;
+    }
+
+        .hero-section .hero-image {
+            flex: none;
+            width: 100%;
+            height: 300px;
+        }
+
+    .hero-title, .hero-subtitle {
+        text-align: center;
+    }
+
+    .hero-badge {
+        align-self: center;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        justify-content: center;
+    }
+}

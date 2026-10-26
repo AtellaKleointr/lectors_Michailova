@@ -1,0 +1,49 @@
+/* Главная */
+.main-section {
+    box-sizing: border-box;
+    position: relative;
+    width: 1170px;
+    height: 447px;
+    background: #FFFFFF;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    padding: 40px;
+}
+
+    .main-section h1 {
+        font-size: 48px;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .main-section p {
+        font-size: 20px;
+        color: #555;
+        text-align: center;
+        max-width: 800px;
+        line-height: 1.6;
+    }
+
+    .main-section .cta-button {
+        margin-top: 30px;
+        padding: 14px 48px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+        background: #2563eb;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+        .main-section .cta-button:hover {
+            background: #1d4ed8;
+        }

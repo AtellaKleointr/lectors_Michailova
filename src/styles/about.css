@@ -1,0 +1,59 @@
+/* ===== О нас ===== */
+
+.about-section {
+    box-sizing: border-box;
+    position: relative;
+    width: 1159px;
+    min-height: 343px;
+    margin: 24px auto 0;
+    padding: 50px 80px; /* Увеличили отступы для воздуха */
+
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    /* Центрируем всё содержимое */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+    /* Красивая декоративная полоска сверху в цветах хэдера */
+    .about-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 4px;
+        background: linear-gradient(90deg, #9DB1D2, #8CB6FB, #ADACAA);
+        border-radius: 0 0 4px 4px;
+    }
+
+    /* Заголовок */
+    .about-section .about-label {
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        font-size: 22px;
+        color: #9DB1D2; /* Цвет как у "Партнёры" */
+        margin: 0 0 30px;
+    }
+
+    /* Текст */
+    .about-section .about-text {
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.8;
+        color: #1a1a2e;
+        max-width: 850px; /* Ограничиваем ширину текста для читаемости */
+    }
+
+        .about-section .about-text p {
+            margin: 0;
+        }
+
+            .about-section .about-text p + p {
+                margin-top: 20px; /* Отступ между абзацами */
+            }

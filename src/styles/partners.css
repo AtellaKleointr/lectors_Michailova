@@ -1,0 +1,94 @@
+/* ===== Партнёры ===== */
+
+.partners-section {
+    box-sizing: border-box;
+    position: relative;
+    width: 1159px;
+    min-height: 371px;
+    margin: 24px auto 0;
+    padding: 32px 48px 40px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+    .partners-section .partners-label {
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        font-size: 22px;
+        color: #9DB1D2; /* Цвет как на скриншоте */
+        margin: 0 0 24px;
+        text-align: center; /* Центрируем заголовок */
+    }
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+}
+
+.partner-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем всё содержимое карточки */
+    text-align: center; /* Центрируем текст */
+    padding: 16px;
+}
+
+    /* Контейнер для логотипа */
+    .partner-card .partner-logo {
+        height: 70px;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .partner-card .partner-logo img {
+            max-height: 70px;
+            max-width: 220px;
+            object-fit: contain;
+            display: block;
+        }
+
+    .partner-card .partner-name {
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 22px;
+        color: #1a1a2e;
+        margin: 0 0 12px;
+    }
+
+    .partner-card .partner-desc {
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #555;
+        max-width: 480px;
+    }
+
+    /* Стрелка-ссылка */
+    .partner-card .partner-arrow {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        text-decoration: none; /* Убираем подчеркивание у ссылки */
+        font-size: 32px;
+        line-height: 1;
+        color: #1a1a2e;
+        cursor: pointer;
+        transition: transform 0.15s ease, color 0.15s ease;
+    }
+
+        .partner-card .partner-arrow:hover {
+            transform: translate(3px, -3px);
+            color: #2563eb; /* Синий цвет при наведении */
+        }
+
+@media (max-width: 900px) {
+    .partners-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
