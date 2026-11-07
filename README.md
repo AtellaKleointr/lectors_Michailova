@@ -1,16 +1,63 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🛠 Стек и версии
 
-Currently, two official plugins are available:
+* **React** (версия 18.3.1) — библиотека для создания пользовательских интерфейсов.
+* **Vite** (версия 5.4.0) — быстрый сборщик и dev-сервер.
+* **Node.js** (рекомендуется версия 18+ или 20+).
+* **CSS3** — стилизация (все стили вынесены в отдельную папку, сторонние UI-библиотеки не используются).
+* **JavaScript (ES6+)** — логика приложения.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Установка и запуск
 
-## React Compiler
+Убедитесь, что у вас установлен [Node.js](https://nodejs.org/).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Клонируйте репозиторий:
+   ```bash
+   git clone https://github.com/ВАШ_НИК/edu-platform.git
+Перейдите в папку с проектом:
 
-## Expanding the ESLint configuration
+bash
+cd edu-platform
+Установите зависимости:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+bash
+npm install
+Запустите проект в режиме разработки:
+
+bash
+npm run dev
+Откройте браузер и перейдите по адресу, который появится в терминале (обычно http://localhost:5173).
+
+edu-platform/
+├── public/                 # Статические файлы
+├── src/
+│   ├── components/         # React-компоненты
+│   │   ├── About.jsx       # Блок "О нас"
+│   │   ├── BookingModal.jsx# Модальное окно для записи на занятие
+│   │   ├── Footer.jsx      # Подвал сайта
+│   │   ├── Header.jsx      # Шапка и навигационное меню
+│   │   ├── Hero.jsx        # Главный баннер (картинка + текст + бегущая строка)
+│   │   ├── LecturerCard.jsx# Карточка лектора в общем списке
+│   │   ├── LecturerPage.jsx# Отдельная страница конкретного лектора
+│   │   ├── Lecturers.jsx   # Список лекторов с фильтрами
+│   │   └── Partners.jsx    # Блок партнеров с логотипами
+│   ├── data/
+│   │   ├── images/         # Локальные картинки (фото лекторов, hero-картинка, логотипы)
+│   │   └── teachers.js     # Файл с данными (лекторы, курсы, цены)
+│   ├── styles/             # CSS-стили для каждого компонента
+│   │   ├── about.css
+│   │   ├── header.css
+│   │   ├── hero.css
+│   │   ├── lecturerPage.css
+│   │   ├── lecturers.css
+│   │   ├── modal.css
+│   │   └── partners.css
+│   ├── App.jsx             # Корневой компонент (Роутинг)
+│   ├── App.css             # Глобальные стили
+│   ├── index.css           # Сброс стилей браузера
+│   └── main.jsx            # Точка входа в React-приложение
+├── index.html              # Главный HTML-файл
+├── package.json            # Зависимости и скрипты
+├── vite.config.js          # Конфигурация Vite
+└── README.md               # Документация проекта
