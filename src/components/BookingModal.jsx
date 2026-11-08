@@ -9,7 +9,7 @@ function BookingModal({ teacher, onClose }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (name && phone) {
-            // Здесь в будущем можно отправить данные на сервер
+          
             setIsSuccess(true);
         }
     };
