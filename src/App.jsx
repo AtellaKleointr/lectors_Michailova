@@ -5,18 +5,17 @@ import Hero from './components/Hero.jsx';
 import About from './components/About.jsx';
 import Partners from './components/Partners.jsx';
 import Lecturers from './components/Lecturers.jsx';
-import LecturerPage from './components/LecturerPage.jsx'; // Импортируем новую страницу
+import LecturerPage from './components/LecturerPage.jsx';
 import './App.css';
 
 function App() {
     const [page, setPage] = useState('main');
-    // 👇 Храним выбранного лектора
+   
     const [selectedTeacher, setSelectedTeacher] = useState(null);
 
-    // Функция для перехода на страницу лектора
+   
     const handleOpenLecturer = (teacher) => {
         setSelectedTeacher(teacher);
-        setPage('lecturer-detail');
     };
 
     const renderPage = () => {
@@ -27,8 +26,14 @@ function App() {
                         <Hero onNavigate={setPage} />
                         <About />
                         <Partners />
-                        {/* Передаем функцию открытия лектора */}
                         <Lecturers onOpenLecturer={handleOpenLecturer} />
+    
+                        {selectedTeacher && (
+                            <LecturerPage
+                                teacher={selectedTeacher}
+                                onClose={() => setSelectedTeacher(null)}
+                            />
+                        )}
                     </div>
                 );
             case 'about':
@@ -36,15 +41,19 @@ function App() {
             case 'partners':
                 return <Partners />;
             case 'lecturers':
-                return <Lecturers onOpenLecturer={handleOpenLecturer} />;
-            // 👇 Страница конкретного лектора
-            case 'lecturer-detail':
                 return (
-                    <LecturerPage
-                        teacher={selectedTeacher}
-                        onBack={() => setPage('lecturers')}
-                    />
+                    <div className="page-stack">
+                        <Lecturers onOpenLecturer={handleOpenLecturer} />
+                        {/* Модалка рендерится поверх списка лекторов */}
+                        {selectedTeacher && (
+                            <LecturerPage
+                                teacher={selectedTeacher}
+                                onClose={() => setSelectedTeacher(null)}
+                            />
+                        )}
+                    </div>
                 );
+
             default:
                 return <Hero onNavigate={setPage} />;
         }

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom'; 
 import '../styles/modal.css';
 
 function BookingModal({ teacher, onClose }) {
@@ -6,17 +7,38 @@ function BookingModal({ teacher, onClose }) {
     const [phone, setPhone] = useState('');
     const [isSuccess, setIsSuccess] = useState(false);
 
+    
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') onClose(); //если открыта модалка с записью, то при нажатии esc событие не должно долететь до модалки
+        };
+        document.addEventListener('keydown', handleKeyDown);
+        document.body.style.overflow = 'hidden';
+
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown);
+            document.body.style.overflow = 'auto';
+        };
+    }, [onClose]);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (name && phone) {
-            // Здесь в будущем можно отправить данные на сервер
             setIsSuccess(true);
         }
     };
 
-    return (
-        <div className="modal-overlay" onClick={onClose}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+   
+    const handleOverlayClick = (e) => {
+        if (e.target === e.currentTarget) {
+            onClose();
+        }
+    };
+
+    
+    return createPortal(
+        <div className="modal-overlay" onClick={handleOverlayClick}>
+            <div className="modal-content">
                 <button className="modal-close" onClick={onClose}>✕</button>
 
                 {isSuccess ? (
@@ -56,7 +78,8 @@ function BookingModal({ teacher, onClose }) {
                     </>
                 )}
             </div>
-        </div>
+        </div>,
+        document.getElementById('modal-root') 
     );
 }
 
