@@ -10,7 +10,7 @@ function BookingModal({ teacher, onClose }) {
     
     useEffect(() => {
         const handleKeyDown = (e) => {
-            if (e.key === 'Escape') onClose();
+            if (e.key === 'Escape') onClose(); //если открыта модалка с записью, то при нажатии esc событие не должно долететь до модалки
         };
         document.addEventListener('keydown', handleKeyDown);
         document.body.style.overflow = 'hidden';
